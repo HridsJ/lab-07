@@ -39,6 +39,8 @@ class FormulaZeroTest {
             .performClick()
 
         // verify race appears
+        // check if the new location appeared in the list or not
+        // notice how it says node with TEXT not node with TAG
         composeTestRule
             .onNodeWithText("Canada")
             .assertExists()

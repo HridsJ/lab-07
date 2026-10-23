@@ -55,5 +55,56 @@ class FormulaZeroTest {
             .onNodeWithText("FormulaZero Home")
             .assertExists()
     }
+
+
+    @Test
+    fun navigate_to_drivers_add_clear_and_return_home() {
+        // go to drivers
+        composeTestRule
+            .onNodeWithTag("driverButton")
+            .performClick()
+
+        // check we went to drivers
+        composeTestRule
+            .onNodeWithText("FormulaZero Drivers")
+            .assertExists()
+
+        // input name
+        composeTestRule
+            .onNodeWithTag("driverNameBox")
+            .performTextInput("lewis hamilton")
+
+        // press add button
+        composeTestRule
+            .onNodeWithTag("driverAddButton")
+            .performClick()
+
+        // add button works
+        composeTestRule
+            .onNodeWithText("lewis hamilton")
+            .assertExists()
+
+        // use clear button
+        composeTestRule
+            .onNodeWithTag("clearEverythingButton")
+            .performClick()
+
+        // clear button works
+        composeTestRule
+            .onNodeWithText("lewis hamilton")
+            .assertDoesNotExist()
+
+        // press back button
+        composeTestRule
+            .onNodeWithTag("driversBackButton")
+            .performClick()
+
+        // back button works
+        composeTestRule
+            .onNodeWithText("FormulaZero Home")
+            .assertExists()
+    }
+
+
 }
 
